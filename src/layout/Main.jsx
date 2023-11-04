@@ -1,9 +1,13 @@
 import { Outlet } from "react-router-dom";
+import Navbar from "../pages/Shared/Navbar/Navbar";
 
 const Main = () => {
     return (
-        <div className="max-w-7xl mx-auto">
-            <Outlet />
+        <div>
+            <Navbar />
+            <div className="max-w-7xl mx-auto">
+                <Outlet />
+            </div>
         </div>
     );
 };
