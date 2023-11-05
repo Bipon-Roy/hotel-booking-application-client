@@ -1,7 +1,7 @@
 const NewsLetter = () => {
     return (
         <div
-            className="h-[40vh] flex items-center justify-center  md:rounded mx-0 md:mx-4"
+            className="h-[40vh] flex items-center justify-center  md:rounded mx-0 md:mx-4 lg:mx-0"
             style={{
                 backgroundImage:
                     "linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(https://i.ibb.co/ZJmLCWJ/news-later.jpg)",
