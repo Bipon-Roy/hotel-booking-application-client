@@ -11,7 +11,7 @@ const About = () => {
                     <div className="">
                         <img
                             src={aboutPhoto}
-                            className="h-full w-full rounded-2xl"
+                            className="h-full w-full rounded"
                             alt="Hotels Photo"
                         />
                     </div>

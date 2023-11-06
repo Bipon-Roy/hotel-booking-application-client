@@ -7,13 +7,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { useContext } from "react";
-import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Testimonials = () => {
-    const { user } = useContext(AuthContext);
     return (
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto mt-8">
             <div className="my-5 space-y-2 ">
                 <h1 className="text-center font-semibold text-2xl md:text-4xl ">
                     What Our <span className="text-primary">Clients Says</span>
