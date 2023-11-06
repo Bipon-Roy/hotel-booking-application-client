@@ -54,7 +54,7 @@ const Login = () => {
             });
     };
     return (
-        <div className="flex flex-col-reverse md:flex-row justify-center items-center bg-[#f8f9fa] max-w-7xl mx-auto">
+        <div className="flex flex-col-reverse md:flex-row justify-center items-center bg-mainBg max-w-7xl mx-auto">
             <div className="">
                 <img className="" src={loginImage} alt="LoginPageVector" />
             </div>

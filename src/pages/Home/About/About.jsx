@@ -17,8 +17,7 @@ const About = () => {
                     </div>
                     <div className="text-black space-y-3">
                         <h1 className="text-3xl font-bold  text-center">
-                            <span className="text-primary ">Welcome to Luxury Hotel </span> - Your
-                            Gateway to Memorable Stays!
+                            Welcome to Luxury Hotel - Your Gateway to Memorable Stays!
                         </h1>
                         <p className="font-medium">
                             At Luxury Hotel, we&apos;re passionate about making your travel dreams a

@@ -6,6 +6,7 @@ export default {
             colors: {
                 primary: "#e63946",
                 secondary: "#9e2a2b",
+                mainBg: "#f8f9fa",
                 textMain: "#000814",
             },
         },

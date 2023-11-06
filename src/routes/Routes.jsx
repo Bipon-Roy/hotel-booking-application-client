@@ -6,6 +6,7 @@ import Register from "../pages/Register/Register";
 import Home from "../pages/Home/Home/Home";
 import BookRooms from "../pages/BookRooms/BookRooms";
 import PrivateRoute from "./PrivateRoute";
+
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -31,6 +32,7 @@ const routes = createBrowserRouter([
                         <BookRooms />
                     </PrivateRoute>
                 ),
+                loader: ({ params }) => fetch(`http://localhost:5000/rooms/${params.id}`),
             },
         ],
     },
