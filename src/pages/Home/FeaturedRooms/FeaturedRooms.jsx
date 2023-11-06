@@ -1,15 +1,17 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import RoomCards from "./RoomCards";
 import { Link } from "react-router-dom";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import useAxiosUrl from "../../../Hook/useAxiosUrl";
 const FeaturedRooms = () => {
     const [rooms, setRooms] = useState([]);
+    const axiosURl = useAxiosUrl();
+
     useEffect(() => {
-        axios.get("http://localhost:5000/rooms").then((res) => {
+        axiosURl.get("/rooms").then((res) => {
             setRooms(res.data);
         });
-    }, []);
+    }, [axiosURl]);
 
     return (
         <div className="my-8 max-w-7xl mx-auto">

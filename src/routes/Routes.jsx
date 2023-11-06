@@ -4,7 +4,8 @@ import Error from "../pages/Error/Error";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Home from "../pages/Home/Home/Home";
-
+import BookRooms from "../pages/BookRooms/BookRooms";
+import PrivateRoute from "./PrivateRoute";
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -22,6 +23,14 @@ const routes = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register />,
+            },
+            {
+                path: "/booking/:id",
+                element: (
+                    <PrivateRoute>
+                        <BookRooms />
+                    </PrivateRoute>
+                ),
             },
         ],
     },

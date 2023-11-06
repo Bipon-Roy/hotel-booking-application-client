@@ -1,7 +1,8 @@
 import { BsFillPeopleFill } from "react-icons/bs";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 const RoomCards = ({ card }) => {
-    const { room_thumbnail, title, room_description, price_per_night, max_occupancy } = card;
+    const { _id, room_thumbnail, title, room_description, price_per_night, max_occupancy } = card;
     return (
         <div className="flex flex-col bg-base-100 shadow-xl transition-all hover:scale-105">
             <figure>
@@ -21,9 +22,12 @@ const RoomCards = ({ card }) => {
                 </div>
             </div>
             <div className="card-actions justify-end m-4">
-                <button className="py-1 bg-primary w-full text-white font font-medium rounded">
+                <Link
+                    to={`booking/${_id}`}
+                    className="py-1 bg-primary w-full text-white text-center font font-medium rounded"
+                >
                     Book Now
-                </button>
+                </Link>
             </div>
         </div>
     );
