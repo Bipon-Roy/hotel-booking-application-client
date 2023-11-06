@@ -4,43 +4,44 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import useAxiosUrl from "../../Hook/useAxiosUrl";
 import { BiArrowBack } from "react-icons/bi";
 import Swal from "sweetalert2";
-// Swal.fire({
-//     icon: "success",
-//     title: "Welcome!",
-//     text: "Login Successful!",
-// });
+
 const BookRooms = () => {
     const axiosURl = useAxiosUrl();
     const { user } = useContext(AuthContext);
     const room = useLoaderData();
     const navigate = useNavigate();
     console.log(room);
-    const { title, _id, price_per_night, room_thumbnail } = room;
+    const { title, _id, price_per_night, room_thumbnail, room_description } = room;
     const handleBookService = (event) => {
         event.preventDefault();
 
         const form = event.target;
         const name = form.name.value;
-        const date = form.date.value;
-        const stayDuration = form.stayDuration.value;
+        const checkIn = form.checkIn.value;
+        const checkOut = form.checkOut.value;
         const email = user?.email;
         const booking = {
+            room_description,
             customerName: name,
             email,
             room_thumbnail,
-            date,
+            checkIn: checkIn,
             roomTitle: title,
             room_id: _id,
             price: price_per_night,
-            stayDuration: stayDuration,
+            checkOut: checkOut,
         };
 
         console.log(booking);
 
-        axiosURl.post("/bookings", {}).then((data) => {
+        axiosURl.post("/bookings", booking).then((data) => {
             console.log(data);
-            if (data.insertedId) {
-                alert("service book successfully");
+            if (data.status === 200) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Welcome!",
+                    text: "Room Successfully Booked!",
+                });
             }
         });
     };
@@ -84,8 +85,9 @@ const BookRooms = () => {
                                     <span className="label-text">Check In Date</span>
                                 </label>
                                 <input
+                                    required
                                     type="date"
-                                    name="date"
+                                    name="checkIn"
                                     className="input input-bordered focus:outline-none"
                                 />
                             </div>
@@ -94,8 +96,9 @@ const BookRooms = () => {
                                     <span className="label-text">Check Out Date</span>
                                 </label>
                                 <input
+                                    required
                                     type="date"
-                                    name="date"
+                                    name="checkOut"
                                     className="input input-bordered focus:outline-none"
                                 />
                             </div>

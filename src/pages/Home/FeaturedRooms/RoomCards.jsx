@@ -23,7 +23,7 @@ const RoomCards = ({ card }) => {
             </div>
             <div className="card-actions justify-end m-4">
                 <Link
-                    to={`booking/${_id}`}
+                    to={`rooms/${_id}`}
                     className="py-1 bg-primary w-full text-white text-center font font-medium rounded"
                 >
                     Book Now

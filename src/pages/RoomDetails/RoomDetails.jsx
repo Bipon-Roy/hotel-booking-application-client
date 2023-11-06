@@ -22,7 +22,7 @@ const RoomDetails = () => {
         private_facilities,
         additional_perks,
     } = room;
-    console.log(room);
+
     return (
         <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-6 pt-5 pb-10 mx-5 lg:mx-0 relative">
@@ -105,7 +105,7 @@ const RoomDetails = () => {
                     </div>
                     <div className="flex">
                         <Link
-                            to={`/booking/${_id}`}
+                            to={`/rooms/${_id}`}
                             className="bg-primary py-1 text-white text-center lg:text-lg font font-medium rounded w-full"
                         >
                             Book Now

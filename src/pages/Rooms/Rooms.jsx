@@ -12,8 +12,6 @@ const Rooms = () => {
             setRooms(res.data);
         });
     }, [axiosURl, price]);
-    console.log(price);
-    console.log(rooms);
 
     return (
         <div className="max-w-7xl mx-auto">
