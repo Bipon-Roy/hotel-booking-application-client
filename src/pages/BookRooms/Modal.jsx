@@ -1,13 +1,23 @@
 import PropTypes from "prop-types";
 import useAxiosUrl from "../../Hook/useAxiosUrl";
 import toast, { Toaster } from "react-hot-toast";
-const Modal = ({ bookingInfo }) => {
-    const axiosURl = useAxiosUrl();
 
+const Modal = ({ bookingInfo, id, seats }) => {
+    console.log(typeof id);
+    const axiosURl = useAxiosUrl();
+    console.log(id, seats);
     const handleBookService = () => {
         axiosURl.post("/bookings", bookingInfo).then((data) => {
             if (data.status === 200) {
-                toast.success("Room Successfully Booked!!!");
+                const newSeats = {
+                    seats: seats - 1,
+                };
+                axiosURl.patch(`/rooms/${id}`, newSeats).then((res) => {
+                    if (res.status === 200) {
+                        toast.success("Room Successfully Booked!!!");
+                    }
+                    console.log(newSeats);
+                });
             }
         });
     };
@@ -45,5 +55,7 @@ const Modal = ({ bookingInfo }) => {
 };
 Modal.propTypes = {
     bookingInfo: PropTypes.object.isRequired,
+    id: PropTypes.string.isRequired,
+    seats: PropTypes.number.isRequired,
 };
 export default Modal;

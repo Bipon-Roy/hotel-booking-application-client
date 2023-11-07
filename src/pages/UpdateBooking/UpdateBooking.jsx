@@ -41,7 +41,7 @@ const UpdateBooking = () => {
 
         console.log(booking);
 
-        axiosURl.patch(`/bookings/${_id}`, booking).then((data) => {
+        axiosURl.put(`/bookings/${_id}`, booking).then((data) => {
             console.log(data);
             if (data.status === 200) {
                 Swal.fire({

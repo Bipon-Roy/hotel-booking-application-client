@@ -2,15 +2,16 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
+import { AiFillCloseCircle } from "react-icons/ai";
 import Modal from "./Modal";
-
+import Swal from "sweetalert2";
 const BookRooms = () => {
     const { user } = useContext(AuthContext);
     const room = useLoaderData();
     const navigate = useNavigate();
     const [bookingInfo, setBookingInfo] = useState({});
     const { title, _id, price_per_night, room_thumbnail, room_description, seats } = room;
-
+    console.log(seats);
     const handleBookService = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -36,7 +37,13 @@ const BookRooms = () => {
         openModal();
     };
     console.log(bookingInfo);
-
+    // if (seats === 0) {
+    //     Swal.fire({
+    //         icon: "error",
+    //         title: "Room Is Unavailable",
+    //         text: "Currently All Seats Are Booked!!!",
+    //     });
+    // }
     return (
         <div>
             <div className="max-w-7xl mx-auto px-5 lg:px-0 grid md:grid-cols-3 gap-5 lg:grid-cols-2 mt-3 relative">
@@ -109,8 +116,10 @@ const BookRooms = () => {
 
                         <div className="form-control mt-6">
                             <button
-                                // onClick={() => document.getElementById("my_modal_1").showModal()}
-                                className="bg-primary text-white py-2 rounded font-semibold "
+                                disabled={seats === 0}
+                                className={`py-2 rounded font-semibold ${
+                                    seats === 0 ? "bg-gray-400 text-black" : "bg-primary text-white"
+                                }`}
                             >
                                 Book Now
                             </button>
@@ -123,11 +132,14 @@ const BookRooms = () => {
                     <div className="modal-box">
                         <form method="dialog">
                             {/* if there is a button in form, it will close the modal */}
-                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                                ✕
+                            <button
+                                onClick={() => window.location.reload()}
+                                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                            >
+                                <AiFillCloseCircle className="text-3xl text-red-700" />
                             </button>
                         </form>
-                        <Modal bookingInfo={bookingInfo}></Modal>
+                        <Modal bookingInfo={bookingInfo} seats={seats} id={_id}></Modal>
                     </div>
                 </dialog>
             </div>

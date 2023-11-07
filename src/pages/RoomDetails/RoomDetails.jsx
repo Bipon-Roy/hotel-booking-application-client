@@ -22,6 +22,7 @@ const RoomDetails = () => {
         entertainment,
         private_facilities,
         additional_perks,
+        seats,
     } = room;
     console.log(room_images);
     return (
@@ -78,7 +79,13 @@ const RoomDetails = () => {
                         <p>
                             <span className="font-semibold mr-1">Room Availability:</span>
                             <span className="font-medium">
-                                {availability === "Available" ? availability : "Not Available"}
+                                {seats === 0 ? (
+                                    <span className="underline font-medium text-primary">
+                                        Not Available
+                                    </span>
+                                ) : (
+                                    availability
+                                )}
                             </span>
                         </p>
                         <p>
