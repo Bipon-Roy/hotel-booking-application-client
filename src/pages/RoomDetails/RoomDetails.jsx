@@ -2,13 +2,14 @@ import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { FaWifi } from "react-icons/fa";
 import { BiArrowBack } from "react-icons/bi";
+import ImageSlider from "./ImageSlider";
 const RoomDetails = () => {
     const navigate = useNavigate();
 
     const room = useLoaderData();
     const {
         _id,
-        room_thumbnail,
+        room_images,
         title,
         room_description,
         room_size,
@@ -22,20 +23,20 @@ const RoomDetails = () => {
         private_facilities,
         additional_perks,
     } = room;
-
+    console.log(room_images);
     return (
         <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-6 pt-5 pb-10 mx-5 lg:mx-0 relative">
-                <div className="absolute top-4 right-3 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:pt-5 pb-10 mx-5 lg:mx-0 relative">
+                <div>
+                    <ImageSlider room_images={room_images} />
+                </div>
+                <div className="absolute top-[490px]  md:top-0 right-0 z-10">
                     <button
                         onClick={() => navigate(-1)}
                         className="text-base bg-secondary  text-white rounded-full p-2"
                     >
                         <BiArrowBack />
                     </button>
-                </div>
-                <div>
-                    <img src={room_thumbnail} className="h-full w-full rounded" alt={title} />
                 </div>
                 <div className="space-y-2 flex flex-col">
                     <h1 className="text-2xl lg:text-3xl font-bold">{title}</h1>

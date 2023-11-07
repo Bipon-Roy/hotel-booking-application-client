@@ -1,18 +1,15 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import useAxiosUrl from "../../Hook/useAxiosUrl";
 import { BiArrowBack } from "react-icons/bi";
-import Swal from "sweetalert2";
 import Modal from "./Modal";
 
 const BookRooms = () => {
-    const axiosURl = useAxiosUrl();
     const { user } = useContext(AuthContext);
     const room = useLoaderData();
     const navigate = useNavigate();
     const [bookingInfo, setBookingInfo] = useState({});
-    const { title, _id, price_per_night, room_thumbnail, room_description } = room;
+    const { title, _id, price_per_night, room_thumbnail, room_description, seats } = room;
 
     const handleBookService = (event) => {
         event.preventDefault();
@@ -32,18 +29,11 @@ const BookRooms = () => {
             price: price_per_night,
             checkOut: checkOut,
         };
-
-        axiosURl.post("/bookings", booking).then((data) => {
-            console.log(data);
-            if (data.status === 200) {
-                setBookingInfo(booking);
-                // Swal.fire({
-                //     icon: "success",
-                //     title: "Welcome!",
-                //     text: "Room Successfully Booked!",
-                // });
-            }
-        });
+        setBookingInfo(booking);
+        const openModal = () => {
+            return document.getElementById("my_modal_1").showModal();
+        };
+        openModal();
     };
     console.log(bookingInfo);
 
@@ -67,6 +57,7 @@ const BookRooms = () => {
                 </div>
                 <div className="">
                     <p className="text-xl font-semibold my-2">{title}</p>
+                    <p className="font-semibold my-2">Available Seats:{seats}</p>
                     <form onSubmit={handleBookService}>
                         <div className="form-control">
                             <label className="label">
@@ -118,7 +109,7 @@ const BookRooms = () => {
 
                         <div className="form-control mt-6">
                             <button
-                                onClick={() => document.getElementById("my_modal_1").showModal()}
+                                // onClick={() => document.getElementById("my_modal_1").showModal()}
                                 className="bg-primary text-white py-2 rounded font-semibold "
                             >
                                 Book Now

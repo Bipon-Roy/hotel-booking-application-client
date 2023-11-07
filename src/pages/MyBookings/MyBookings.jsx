@@ -3,6 +3,7 @@ import useAxiosUrl from "../../Hook/useAxiosUrl";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import BookingCard from "./BookingCard";
+import moment from "moment-timezone"; // Import moment-timezone
 
 const MyBookings = () => {
     const axiosURl = useAxiosUrl();
@@ -15,30 +16,45 @@ const MyBookings = () => {
         });
     }, [axiosURl, user.email]);
 
-    const handleDeleteBooking = (id) => {
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                axiosURl.delete(`/bookings/${id}`).then((data) => {
-                    console.log(data);
-                    if (data.status === 200) {
-                        console.log("deleted successfully");
-                        Swal.fire("Cancelled!", "Booking Cancelled Successfully", "success");
-                        // remove the user from the UI
-                        const remainingCards = bookings.filter((card) => card._id !== id);
-                        console.log(remainingCards);
-                        setBookings(remainingCards);
-                    }
-                });
-            }
-        });
+    const handleDeleteBooking = (id, checkInDate) => {
+        const currentDate = moment().format("YYYY-MM-DD");
+        console.log("Current Date", currentDate);
+        const checkIn = moment(checkInDate);
+        console.log("CheckIn Date", checkIn);
+        const daysUntilCheckIn = checkIn.diff(currentDate, "days");
+        console.log(daysUntilCheckIn);
+
+        if (daysUntilCheckIn < 2) {
+            Swal.fire({
+                icon: "error",
+                title: "Cancellation Not Allowed",
+                text: "Cancellations are only allowed up to 2 days before check-in.",
+            });
+        } else {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, Cancel it!",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axiosURl.delete(`/bookings/${id}`).then((data) => {
+                        console.log(data);
+                        if (data.status === 200) {
+                            console.log("deleted successfully");
+                            Swal.fire("Cancelled!", "Booking Cancelled Successfully", "success");
+
+                            const remainingCards = bookings.filter((card) => card._id !== id);
+                            console.log(remainingCards);
+                            setBookings(remainingCards);
+                        }
+                    });
+                }
+            });
+        }
     };
 
     return (

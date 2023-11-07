@@ -1,11 +1,19 @@
 import PropTypes from "prop-types";
-import Swal from "sweetalert2";
-
+import useAxiosUrl from "../../Hook/useAxiosUrl";
+import toast, { Toaster } from "react-hot-toast";
 const Modal = ({ bookingInfo }) => {
-    console.log(bookingInfo);
-    console.log(typeof bookingInfo);
+    const axiosURl = useAxiosUrl();
+
+    const handleBookService = () => {
+        axiosURl.post("/bookings", bookingInfo).then((data) => {
+            if (data.status === 200) {
+                toast.success("Room Successfully Booked!!!");
+            }
+        });
+    };
     return (
         <div className="card">
+            <Toaster />
             <div className="p-4">
                 <div className="space-y-3 font-semibold p-4 ">
                     <h2 className="font-bold text-lg">{bookingInfo?.roomTitle}</h2>
@@ -24,7 +32,7 @@ const Modal = ({ bookingInfo }) => {
                     </div>
                     <div className="flex flex-col lg:flex-row justify-between pt-3">
                         <button
-                            // onClick={() => handleBookingConfirm(_id)}
+                            onClick={handleBookService}
                             className="bg-primary text-white px-4 py-1 rounded font-semibold"
                         >
                             Confirm Booking

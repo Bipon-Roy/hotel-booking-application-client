@@ -12,7 +12,14 @@
         "entertainment": "Flat-screen TV, Netflix",
         "private_facilities": "En-suite bathroom with rain shower and bathtub",
         "wifi": true,
-        "additional_perks": "Complimentary breakfast, access to the spa"
+        "additional_perks": "Complimentary breakfast, access to the spa",
+        "seats": 3,
+        "room_images": [
+            "https://i.ibb.co/ngRSKdx/1.jpg",
+            "https://i.ibb.co/zZC0Mdz/2.jpg",
+            "https://i.ibb.co/wwsTh9X/3.jpg",
+            "https://i.ibb.co/L6hLVXd/4.jpg"
+        ]
     },
     {
         "title": "Garden View Family Suite",
@@ -26,7 +33,14 @@
         "entertainment": "Flat-screen TV, video game console",
         "private_facilities": "En-suite bathroom with bathtub",
         "wifi": true,
-        "additional_perks": "Complimentary breakfast, family-friendly activities"
+        "additional_perks": "Complimentary breakfast, family-friendly activities",
+        "seats": 5,
+        "room_images": [
+            "https://i.ibb.co/ngRSKdx/1.jpg",
+            "https://i.ibb.co/zZC0Mdz/2.jpg",
+            "https://i.ibb.co/wwsTh9X/3.jpg",
+            "https://i.ibb.co/L6hLVXd/4.jpg"
+        ]
     },
     {
         "title": "City-View Deluxe Room",
@@ -41,7 +55,14 @@
         "entertainment": "Flat-screen TV",
         "private_facilities": "En-suite bathroom with shower",
         "wifi": true,
-        "additional_perks": "City guide, proximity to local attractions"
+        "additional_perks": "City guide, proximity to local attractions",
+        "seats": 4,
+        "room_images": [
+            "https://i.ibb.co/ngRSKdx/1.jpg",
+            "https://i.ibb.co/zZC0Mdz/2.jpg",
+            "https://i.ibb.co/wwsTh9X/3.jpg",
+            "https://i.ibb.co/L6hLVXd/4.jpg"
+        ]
     },
     {
         "title": "Spa Retreat Suite",
@@ -56,7 +77,14 @@
         "entertainment": "Flat-screen TV, spa tub",
         "private_facilities": "En-suite bathroom with spa tub and rain shower",
         "wifi": true,
-        "additional_perks": "Complimentary spa treatments, access to the wellness center"
+        "additional_perks": "Complimentary spa treatments, access to the wellness center",
+        "seats": 4,
+        "room_images": [
+            "https://i.ibb.co/ngRSKdx/1.jpg",
+            "https://i.ibb.co/zZC0Mdz/2.jpg",
+            "https://i.ibb.co/wwsTh9X/3.jpg",
+            "https://i.ibb.co/L6hLVXd/4.jpg"
+        ]
     },
     {
         "title": "Executive Suite for Business Travelers",
@@ -70,7 +98,14 @@
         "entertainment": "Flat-screen TV, work desk",
         "private_facilities": "En-suite bathroom with shower",
         "wifi": true,
-        "additional_perks": "Complimentary breakfast, business center access"
+        "additional_perks": "Complimentary breakfast, business center access",
+        "seats": 3,
+        "room_images": [
+            "https://i.ibb.co/ngRSKdx/1.jpg",
+            "https://i.ibb.co/zZC0Mdz/2.jpg",
+            "https://i.ibb.co/wwsTh9X/3.jpg",
+            "https://i.ibb.co/L6hLVXd/4.jpg"
+        ]
     },
     {
         "title": "Mountain View Retreat",
@@ -84,7 +119,14 @@
         "entertainment": "Flat-screen TV, hiking trail access",
         "private_facilities": "En-suite bathroom with a view",
         "wifi": true,
-        "additional_perks": "Complimentary hiking gear, guided mountain tours"
+        "additional_perks": "Complimentary hiking gear, guided mountain tours",
+        "seats": 4,
+        "room_images": [
+            "https://i.ibb.co/ngRSKdx/1.jpg",
+            "https://i.ibb.co/zZC0Mdz/2.jpg",
+            "https://i.ibb.co/wwsTh9X/3.jpg",
+            "https://i.ibb.co/L6hLVXd/4.jpg"
+        ]
     },
     {
         "title": "Honeymoon Hideaway",
@@ -99,7 +141,14 @@
         "entertainment": "Flat-screen TV, in-room dining",
         "private_facilities": "En-suite bathroom with whirlpool tub",
         "wifi": true,
-        "additional_perks": "Private butler service, couples' spa treatments"
+        "additional_perks": "Private butler service, couples' spa treatments",
+        "seats": 2,
+        "room_images": [
+            "https://i.ibb.co/ngRSKdx/1.jpg",
+            "https://i.ibb.co/zZC0Mdz/2.jpg",
+            "https://i.ibb.co/wwsTh9X/3.jpg",
+            "https://i.ibb.co/L6hLVXd/4.jpg"
+        ]
     },
     {
         "title": "Historical Charm Suite",
@@ -113,7 +162,14 @@
         "entertainment": "Flat-screen TV, historical library access",
         "private_facilities": "En-suite bathroom with clawfoot bathtub",
         "wifi": true,
-        "additional_perks": "Guided historical tours, afternoon tea"
+        "additional_perks": "Guided historical tours, afternoon tea",
+        "seats": 3,
+        "room_images": [
+            "https://i.ibb.co/ngRSKdx/1.jpg",
+            "https://i.ibb.co/zZC0Mdz/2.jpg",
+            "https://i.ibb.co/wwsTh9X/3.jpg",
+            "https://i.ibb.co/L6hLVXd/4.jpg"
+        ]
     },
     {
         "title": "Penthouse Panorama Suite",
@@ -128,7 +184,14 @@
         "entertainment": "Flat-screen TV, private rooftop terrace",
         "private_facilities": "En-suite bathroom with spa tub and city skyline view",
         "wifi": true,
-        "additional_perks": "Private concierge, in-room dining, helicopter city tours"
+        "additional_perks": "Private concierge, in-room dining, helicopter city tours",
+        "seats": 4,
+        "room_images": [
+            "https://i.ibb.co/ngRSKdx/1.jpg",
+            "https://i.ibb.co/zZC0Mdz/2.jpg",
+            "https://i.ibb.co/wwsTh9X/3.jpg",
+            "https://i.ibb.co/L6hLVXd/4.jpg"
+        ]
     },
     {
         "title": "Executive Suite with Skyline View",
@@ -143,7 +206,14 @@
         "entertainment": "Flat-screen TV, work desk with city view",
         "private_facilities": "En-suite bathroom with skyline view and rain shower",
         "wifi": true,
-        "additional_perks": "Business center access, in-room dining"
+        "additional_perks": "Business center access, in-room dining",
+        "seats": 4,
+        "room_images": [
+            "https://i.ibb.co/ngRSKdx/1.jpg",
+            "https://i.ibb.co/zZC0Mdz/2.jpg",
+            "https://i.ibb.co/wwsTh9X/3.jpg",
+            "https://i.ibb.co/L6hLVXd/4.jpg"
+        ]
     },
     {
         "title": "Tranquil Riverside Retreat",
@@ -157,7 +227,14 @@
         "entertainment": "Flat-screen TV, private balcony with river view",
         "private_facilities": "En-suite bathroom with river view and rain shower",
         "wifi": true,
-        "additional_perks": "Guided nature walks, riverfront yoga"
+        "additional_perks": "Guided nature walks, riverfront yoga",
+        "seats": 4,
+        "room_images": [
+            "https://i.ibb.co/ngRSKdx/1.jpg",
+            "https://i.ibb.co/zZC0Mdz/2.jpg",
+            "https://i.ibb.co/wwsTh9X/3.jpg",
+            "https://i.ibb.co/L6hLVXd/4.jpg"
+        ]
     },
     {
         "title": "Beachfront Paradise Villa",
@@ -172,6 +249,13 @@
         "entertainment": "Flat-screen TVs, watersports equipment",
         "private_facilities": "En-suite bathrooms, outdoor shower, and beach view",
         "wifi": true,
-        "additional_perks": "Private butler, beachfront dining"
+        "additional_perks": "Private butler, beachfront dining",
+        "seats": 5,
+        "room_images": [
+            "https://i.ibb.co/ngRSKdx/1.jpg",
+            "https://i.ibb.co/zZC0Mdz/2.jpg",
+            "https://i.ibb.co/wwsTh9X/3.jpg",
+            "https://i.ibb.co/L6hLVXd/4.jpg"
+        ]
     }
 ]
