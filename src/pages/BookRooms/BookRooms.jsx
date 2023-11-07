@@ -4,7 +4,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 import { AiFillCloseCircle } from "react-icons/ai";
 import Modal from "./Modal";
-import Swal from "sweetalert2";
+
 const BookRooms = () => {
     const { user } = useContext(AuthContext);
     const room = useLoaderData();
@@ -64,7 +64,7 @@ const BookRooms = () => {
                 </div>
                 <div className="">
                     <p className="text-xl font-semibold my-2">{title}</p>
-                    <p className="font-semibold my-2">Available Seats:{seats}</p>
+                    <p className="text-lg font-semibold my-2">Available Seats:{seats}</p>
                     <form onSubmit={handleBookService}>
                         <div className="form-control">
                             <label className="label">
@@ -124,6 +124,11 @@ const BookRooms = () => {
                                 Book Now
                             </button>
                         </div>
+                        {seats === 0 && (
+                            <p className="mt-4 text-primary font-bold">
+                                Currently All Seats Are Booked!!!
+                            </p>
+                        )}
                     </form>
                 </div>
                 {/* You can open the modal using document.getElementById('ID').showModal() method */}
