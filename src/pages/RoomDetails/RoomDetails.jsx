@@ -3,9 +3,13 @@ import { BsFillPeopleFill } from "react-icons/bs";
 import { FaWifi } from "react-icons/fa";
 import { BiArrowBack } from "react-icons/bi";
 import ImageSlider from "./ImageSlider";
+import { useEffect, useState } from "react";
+import useAxiosUrl from "../../Hook/useAxiosUrl";
+import ReviewCard from "./ReviewCard";
 const RoomDetails = () => {
     const navigate = useNavigate();
-
+    const [reviews, setReviews] = useState([]);
+    const axiosURl = useAxiosUrl();
     const room = useLoaderData();
     const {
         _id,
@@ -24,7 +28,15 @@ const RoomDetails = () => {
         additional_perks,
         seats,
     } = room;
-    console.log(room_images);
+
+    useEffect(() => {
+        axiosURl
+            .get(`/reviews/${_id}`)
+            .then((res) => {
+                setReviews(res.data);
+            })
+            .catch((e) => console.log(e));
+    }, [axiosURl, _id]);
     return (
         <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:pt-5 pb-10 mx-5 lg:mx-0 relative">
@@ -120,6 +132,23 @@ const RoomDetails = () => {
                         </Link>
                     </div>
                 </div>
+            </div>
+
+            <div>
+                <h1 className="font-bold text-3xl text-center my-2">Room Reviews</h1>
+                {reviews.length === 0 ? (
+                    <div>
+                        <h1 className="text-center text-2xl font-medium">
+                            Currently No Reviews Available!!!
+                        </h1>
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:pt-5 pb-10 mx-5 lg:mx-0 ">
+                        {reviews.map((reviews) => (
+                            <ReviewCard key={reviews._id} reviews={reviews}></ReviewCard>
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );
