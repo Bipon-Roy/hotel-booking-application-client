@@ -3,7 +3,7 @@ import useAxiosUrl from "../../Hook/useAxiosUrl";
 import Cards from "./Cards";
 import { Link } from "react-router-dom";
 import Review from "./Review";
-
+import { AiFillCloseCircle } from "react-icons/ai";
 const Rooms = () => {
     const axiosURl = useAxiosUrl();
     const [rooms, setRooms] = useState([]);
@@ -49,11 +49,11 @@ const Rooms = () => {
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
 
             <dialog id="my_modal_3" className="modal">
-                <div className="modal-box w-11/12 max-w-6xl">
+                <div className="modal-box w-11/12 max-w-2xl">
                     <form method="dialog">
                         {/* if there is a button in form, it will close the modal */}
                         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                            ✕
+                            <AiFillCloseCircle className="text-4xl text-red-700" />
                         </button>
                     </form>
                     <Review />
