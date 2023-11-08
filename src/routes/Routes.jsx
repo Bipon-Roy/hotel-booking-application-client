@@ -6,11 +6,12 @@ import Register from "../pages/Register/Register";
 import Home from "../pages/Home/Home/Home";
 import BookRooms from "../pages/BookRooms/BookRooms";
 import PrivateRoute from "./PrivateRoute";
-import About from "../pages/Home/About/About";
+
 import Rooms from "../pages/Rooms/Rooms";
 import RoomDetails from "../pages/RoomDetails/RoomDetails";
 import MyBookings from "../pages/MyBookings/MyBookings";
 import UpdateBooking from "../pages/UpdateBooking/UpdateBooking";
+import AboutUs from "../pages/Home/About/AboutUs";
 
 const routes = createBrowserRouter([
     {
@@ -32,7 +33,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/about",
-                element: <About />,
+                element: <AboutUs />,
             },
             {
                 path: "/rooms",

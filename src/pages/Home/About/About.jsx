@@ -1,12 +1,8 @@
-import { Helmet } from "react-helmet-async";
 import aboutPhoto from "../../../assets/About.jpg";
 
 const About = () => {
     return (
         <div>
-            <Helmet>
-                <title>Luxury Hotel | About</title>
-            </Helmet>
             <div className="max-w-7xl mx-auto pt-8">
                 <h1 className="text-center font-semibold text-4xl ">
                     About <span className="text-primary ">Us</span>
