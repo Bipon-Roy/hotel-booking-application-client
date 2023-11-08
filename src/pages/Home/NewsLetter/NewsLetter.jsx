@@ -10,7 +10,10 @@ const NewsLetter = () => {
                 backgroundSize: "cover",
             }}
         >
-            <div className="text-center bg-white p-4 lg:p-8 rounded w-[400px] lg:w-[700px]">
+            <div
+                className="text-center bg-white p-4 lg:p-8 rounded w-[400px] lg:w-[700px]"
+                data-aos="fade-up"
+            >
                 <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3">
                     Subscribe our <span className="text-primary">Newsletter</span>
                 </h1>

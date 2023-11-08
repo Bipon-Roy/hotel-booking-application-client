@@ -9,13 +9,13 @@ const HotelViews = () => {
                     Our Hotel <span className="text-primary">Views</span>
                 </h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-5 py-8 lg:px-0 lg:py-0 lg:pt-8">
-                    <div className="">
+                    <div data-aos="fade-up">
                         <video className="w-full" autoPlay controls>
                             <source src="./Hotel.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div className="">
+                    <div data-aos="fade-down">
                         <Slider />
                     </div>
                 </div>

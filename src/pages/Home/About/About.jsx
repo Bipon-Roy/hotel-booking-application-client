@@ -12,14 +12,14 @@ const About = () => {
                     About <span className="text-primary ">Us</span>
                 </h1>
                 <div className="grid lg:grid-cols-2 gap-8 pt-8 pb-10 mx-5 lg:mx-0 ">
-                    <div className="">
+                    <div className="" data-aos="fade-right">
                         <img
                             src={aboutPhoto}
                             className="h-full w-full rounded"
                             alt="Hotels Photo"
                         />
                     </div>
-                    <div className="text-black space-y-3">
+                    <div className="text-black space-y-3" data-aos="fade-left">
                         <h1 className="text-3xl font-bold  text-center">
                             Welcome to Luxury Hotel - Your Gateway to Memorable Stays!
                         </h1>

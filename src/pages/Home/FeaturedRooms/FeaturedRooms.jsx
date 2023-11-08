@@ -18,7 +18,10 @@ const FeaturedRooms = () => {
             <h1 className="text-center font-semibold text-4xl my-8">
                 Featured <span className="text-primary">Rooms</span>
             </h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mx-6 md:mx-8 lg:mx-0">
+            <div
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mx-6 md:mx-8 lg:mx-0"
+                data-aos="fade-left"
+            >
                 {rooms.slice(0, 8).map((card) => (
                     <RoomCards key={card._id} card={card}></RoomCards>
                 ))}
