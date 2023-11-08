@@ -4,6 +4,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 import { AiFillCloseCircle } from "react-icons/ai";
 import Modal from "./Modal";
+import { Helmet } from "react-helmet-async";
 
 const BookRooms = () => {
     const { user } = useContext(AuthContext);
@@ -46,8 +47,11 @@ const BookRooms = () => {
     // }
     return (
         <div>
+            <Helmet>
+                <title>Luxury Hotel | Book-Rooms</title>
+            </Helmet>
             <div className="max-w-7xl mx-auto px-5 lg:px-0 grid md:grid-cols-3 gap-5 lg:grid-cols-2 mt-3 relative">
-                <div className="absolute top-0 right-1 ">
+                <div className="absolute top-[300px] right-5 md:top-0 lg:right-0">
                     <button
                         onClick={() => navigate(-1)}
                         className="text-base bg-secondary  text-white rounded-full p-2"

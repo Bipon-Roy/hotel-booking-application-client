@@ -17,8 +17,6 @@ const Cards = ({ card }) => {
             .catch((e) => console.log(e));
     }, [axiosURl, _id]);
 
-    console.log(reviews);
-
     return (
         <div className="flex flex-col bg-base-100 shadow-xl transition-all hover:scale-105">
             <Link to={`/roomDetails/${_id}`}>

@@ -19,7 +19,7 @@ const Footer = () => {
             {user && (
                 <>
                     <li className="mr-5 font-medium">
-                        <NavLink to="/bookings">My Bookings</NavLink>
+                        <NavLink to="/myBookings">My Bookings</NavLink>
                     </li>
                 </>
             )}

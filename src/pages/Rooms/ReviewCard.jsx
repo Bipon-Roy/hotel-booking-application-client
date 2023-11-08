@@ -12,10 +12,8 @@ import useAxiosUrl from "../../Hook/useAxiosUrl";
 const ReviewCard = ({ booking }) => {
     const { user } = useContext(AuthContext);
     const { price, room_thumbnail, roomTitle, room_id } = booking;
-    console.log(room_id);
     const axiosURl = useAxiosUrl();
     const timestamp = moment().format("MMMM Do YYYY, h:mm a");
-
     const handleReview = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -36,7 +34,6 @@ const ReviewCard = ({ booking }) => {
             userPhoto,
             room_id,
         };
-        console.log(review);
         axiosURl.post("/reviews", review).then((res) => {
             if (res.status === 200) {
                 toast.success("Thanks for your feedback!!!");

@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import useAxiosUrl from "../../Hook/useAxiosUrl";
 import { BiArrowBack } from "react-icons/bi";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const UpdateBooking = () => {
     const axiosURl = useAxiosUrl();
@@ -22,7 +23,7 @@ const UpdateBooking = () => {
                 console.log(e);
             });
     }, [axiosURl, id]);
-    console.log(booking);
+
     const { _id, title, room_thumbnail, checkOut, checkIn } = booking;
 
     const handleUpdateBookings = (event) => {
@@ -39,8 +40,6 @@ const UpdateBooking = () => {
             checkOut: checkOut,
         };
 
-        console.log(booking);
-
         axiosURl.put(`/bookings/${_id}`, booking).then((data) => {
             console.log(data);
             if (data.status === 200) {
@@ -54,8 +53,11 @@ const UpdateBooking = () => {
     };
     return (
         <div>
+            <Helmet>
+                <title>Luxury Hotel | Update Booking</title>
+            </Helmet>
             <div className="max-w-7xl mx-auto px-5 lg:px-0 grid md:grid-cols-3 gap-5 lg:grid-cols-2 mt-3 relative">
-                <div className="absolute top-0 right-0">
+                <div className="absolute top-[230px] right-5 md:top-0 lg:right-0">
                     <button
                         onClick={() => navigate(-1)}
                         className="text-base bg-secondary  text-white rounded-full p-2"

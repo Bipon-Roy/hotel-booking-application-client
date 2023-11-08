@@ -4,6 +4,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import BookingCard from "./BookingCard";
 import moment from "moment-timezone"; // Import moment-timezone
+import { Helmet } from "react-helmet-async";
 
 const MyBookings = () => {
     const axiosURl = useAxiosUrl();
@@ -59,8 +60,10 @@ const MyBookings = () => {
 
     return (
         <div className="max-w-7xl mx-auto">
+            <Helmet>
+                <title>Luxury Hotel | Bookings</title>
+            </Helmet>
             <h2 className="text-2xl text-center">Booked Rooms: {bookings.length}</h2>
-
             <div className="mt-5 grid grid-cols-1 md:grid-cols-2  gap-6 mx-6 md:mx-8 lg:mx-0">
                 {bookings.map((booking) => (
                     <BookingCard

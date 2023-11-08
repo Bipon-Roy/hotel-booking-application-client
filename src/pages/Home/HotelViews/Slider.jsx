@@ -26,17 +26,29 @@ const Slider = () => {
             >
                 <SwiperSlide>
                     <div>
-                        <img src={slider1} className="h-[355px]" alt="HotelsView" />
+                        <img
+                            src={slider1}
+                            className="md:h-[200px] lg:h-[345px] w-full"
+                            alt="HotelsView"
+                        />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <img src={slider2} className="h-[355px]" alt="HotelsView" />
+                        <img
+                            src={slider2}
+                            className="md:h-[200px] lg:h-[345px] w-full"
+                            alt="HotelsView"
+                        />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <img src={slider3} className="h-[355px]" alt="HotelsView" />
+                        <img
+                            src={slider3}
+                            className="md:h-[200px] lg:h-[345px] w-full"
+                            alt="HotelsView"
+                        />
                     </div>
                 </SwiperSlide>
             </Swiper>

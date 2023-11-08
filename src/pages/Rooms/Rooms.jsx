@@ -4,6 +4,7 @@ import Cards from "./Cards";
 import { Link } from "react-router-dom";
 import Review from "./Review";
 import { AiFillCloseCircle } from "react-icons/ai";
+import { Helmet } from "react-helmet-async";
 const Rooms = () => {
     const axiosURl = useAxiosUrl();
     const [rooms, setRooms] = useState([]);
@@ -17,22 +18,25 @@ const Rooms = () => {
 
     return (
         <div className="max-w-7xl mx-auto">
+            <Helmet>
+                <title>Luxury Hotel | Rooms</title>
+            </Helmet>
             <h1 className="text-center font-semibold text-3xl my-8">
                 Our Hotel <span className="text-primary">Rooms</span>
             </h1>
-            <div className="flex justify-between items-center border p-3 mb-6">
+            <div className="flex justify-between items-center border p-3 mb-6 mx-4 md:mx-8 lg:mx-0">
                 <div>
                     <Link
                         onClick={() => document.getElementById("my_modal_3").showModal()}
-                        className="underline text-primary"
+                        className="underline text-primary text-sm md:text-base"
                     >
                         Leave A Review
                     </Link>
                 </div>
-                <div className="flex items-center gap-4">
-                    <p className="font-medium">Sort By Price</p>
+                <div className="flex items-center gap-1 md:gap-4">
+                    <p className="font-medium text-sm md:text-base">Sort By Price</p>
                     <select
-                        className="px-5 py-2 border focus:outline-none"
+                        className="md:px-5 py-2 border focus:outline-none"
                         onChange={(e) => setPrice(e.target.value)}
                     >
                         <option value="">Chose One</option>
