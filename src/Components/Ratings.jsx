@@ -9,6 +9,6 @@ const Ratings = ({ ratings }) => {
     return <div className="text-primary flex gap-1 text-2xl">{ratingStar}</div>;
 };
 Ratings.propTypes = {
-    ratings: PropTypes.string.isRequired,
+    ratings: PropTypes.number.isRequired,
 };
 export default Ratings;

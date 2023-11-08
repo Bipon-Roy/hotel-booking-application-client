@@ -2,7 +2,6 @@ import Ratings from "../../Components/Ratings";
 import PropTypes from "prop-types";
 const ReviewCard = ({ reviews }) => {
     const { customerName, rating, timestamp, userPhoto, comment } = reviews;
-    console.log(reviews);
 
     return (
         <div className="flex flex-col bg-base-100 shadow border">
