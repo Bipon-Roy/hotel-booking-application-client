@@ -57,7 +57,7 @@ const UpdateBooking = () => {
                 <title>Luxury Hotel | Update Booking</title>
             </Helmet>
             <div className="max-w-7xl mx-auto px-5 lg:px-0 grid md:grid-cols-3 gap-5 lg:grid-cols-2 mt-3 relative">
-                <div className="absolute top-[230px] right-5 md:top-0 lg:right-0">
+                <div className="absolute top-[270px] right-5 md:top-0 lg:right-0">
                     <button
                         onClick={() => navigate(-1)}
                         className="text-base bg-secondary  text-white rounded-full p-2"
@@ -66,10 +66,14 @@ const UpdateBooking = () => {
                     </button>
                 </div>
                 <div className="lg:p-5 md:col-span-2 lg:col-auto">
-                    <img className="rounded h-full w-full" src={room_thumbnail} alt={title} />
+                    <img
+                        className="rounded h-[250px] md:h-full w-full"
+                        src={room_thumbnail}
+                        alt={title}
+                    />
                 </div>
 
-                <div className="">
+                <div className="mt-4 md:mt-0">
                     <p className="text-xl font-semibold my-2">{title}</p>
                     <form onSubmit={handleUpdateBookings}>
                         <div>

@@ -50,7 +50,7 @@ const BookRooms = () => {
             <Helmet>
                 <title>Luxury Hotel | Book-Rooms</title>
             </Helmet>
-            <div className="max-w-7xl mx-auto px-5 lg:px-0 grid md:grid-cols-3 gap-5 lg:grid-cols-2 mt-3 relative">
+            <div className="max-w-7xl mx-auto px-5 lg:px-0 grid md:grid-cols-2 gap-5 lg:grid-cols-2 mt-3 relative">
                 <div className="absolute top-[300px] right-5 md:top-0 lg:right-0">
                     <button
                         onClick={() => navigate(-1)}
@@ -59,14 +59,14 @@ const BookRooms = () => {
                         <BiArrowBack />
                     </button>
                 </div>
-                <div className="lg:p-5 md:col-span-2 lg:col-auto">
+                <div className="lg:p-5  lg:col-auto">
                     <img
-                        className="rounded h-full w-full"
+                        className="rounded h-[285px] md:h-full w-full"
                         src={room_thumbnail}
                         alt="LoginPageVector"
                     />
                 </div>
-                <div className="">
+                <div className="mt-5 md:mt-0">
                     <p className="text-xl font-semibold my-2">{title}</p>
                     <p className="text-lg font-semibold my-2">Available Seats:{seats}</p>
                     <form onSubmit={handleBookService}>

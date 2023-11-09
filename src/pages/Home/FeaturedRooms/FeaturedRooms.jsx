@@ -20,7 +20,7 @@ const FeaturedRooms = () => {
             </h1>
             <div
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mx-6 md:mx-8 lg:mx-0"
-                data-aos="fade-left"
+                data-aos="fade-up"
             >
                 {rooms.slice(0, 8).map((card) => (
                     <RoomCards key={card._id} card={card}></RoomCards>
