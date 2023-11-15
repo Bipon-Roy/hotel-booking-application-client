@@ -6,6 +6,8 @@ import ImageSlider from "./ImageSlider";
 import { useEffect, useState } from "react";
 import useAxiosUrl from "../../Hook/useAxiosUrl";
 import ReviewCard from "./ReviewCard";
+import { Helmet } from "react-helmet-async";
+
 const RoomDetails = () => {
     const navigate = useNavigate();
     const [reviews, setReviews] = useState([]);
@@ -39,6 +41,9 @@ const RoomDetails = () => {
     }, [axiosURl, _id]);
     return (
         <div className="max-w-7xl mx-auto">
+            <Helmet>
+                <title>Luxury Hotel | Room Details</title>
+            </Helmet>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:pt-5 pb-10 mx-5 lg:mx-0 relative">
                 <div>
                     <ImageSlider room_images={room_images} />

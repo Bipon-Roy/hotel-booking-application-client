@@ -12,6 +12,7 @@ import RoomDetails from "../pages/RoomDetails/RoomDetails";
 import MyBookings from "../pages/MyBookings/MyBookings";
 import UpdateBooking from "../pages/UpdateBooking/UpdateBooking";
 import AboutUs from "../pages/Home/About/AboutUs";
+import FeedBack from "../pages/MyBookings/FeedBack";
 
 const routes = createBrowserRouter([
     {
@@ -62,6 +63,14 @@ const routes = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <MyBookings />
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: "/feedback/:id",
+                element: (
+                    <PrivateRoute>
+                        <FeedBack />
                     </PrivateRoute>
                 ),
             },

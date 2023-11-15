@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
-import { FcCancel } from "react-icons/fc";
+import { TiCancel } from "react-icons/ti";
 import { RxUpdate } from "react-icons/rx";
 import { Link } from "react-router-dom";
+import { FaArrowAltCircleRight } from "react-icons/fa";
+
 const BookingCard = ({ booking, handleDeleteBooking }) => {
     const { _id, checkIn, checkOut, room_description, price, room_thumbnail, roomTitle } = booking;
     return (
@@ -25,22 +27,31 @@ const BookingCard = ({ booking, handleDeleteBooking }) => {
                         </p>
                     </div>
                     <div className="flex items-center justify-between">
-                        <button
-                            onClick={() => handleDeleteBooking(_id, checkIn)}
-                            className="text-[#c1121f] font-bold"
+                        <Link
+                            to={`/feedback/${_id}`}
+                            className="text-[#2667ff] font-semibold  flex items-center gap-1"
                         >
-                            <span className="flex items-center gap-1">
-                                Cancel Booking <FcCancel className="text-xl" />
-                            </span>
-                        </button>
+                            Your Review
+                            <FaArrowAltCircleRight />
+                        </Link>
                         <Link
                             to={`/updateBooking/${_id}`}
-                            className="bg-[#eb5e28] px-2 py-1 rounded font-medium text-white"
+                            className="text-[#eb5e28] px-2 py-1 rounded font-semibold border-2"
                         >
                             <span className="flex items-center gap-1">
                                 Update <RxUpdate />
                             </span>
                         </Link>
+                    </div>
+                    <div className="flex flex-col">
+                        <button
+                            onClick={() => handleDeleteBooking(_id, checkIn)}
+                            className="text-[#c1121f] font-semibold"
+                        >
+                            <span className="flex items-center gap-1 text-white py-1 w-full bg-red-600 justify-center rounded">
+                                Cancel Booking <TiCancel className="text-xl" />
+                            </span>
+                        </button>
                     </div>
                 </div>
             </div>

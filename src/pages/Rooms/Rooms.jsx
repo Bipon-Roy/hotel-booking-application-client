@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import useAxiosUrl from "../../Hook/useAxiosUrl";
 import Cards from "./Cards";
-import { Link } from "react-router-dom";
 import Review from "./Review";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { Helmet } from "react-helmet-async";
@@ -29,16 +28,15 @@ const Rooms = () => {
             </h1>
             <div className="flex flex-col lg:flex-row justify-between items-center border p-3 mb-6 mx-4 md:mx-8 lg:mx-0">
                 <div>
-                    <Link
+                    {/* <Link
                         onClick={() => document.getElementById("my_modal_3").showModal()}
                         className="underline text-primary text-sm md:text-base"
                     >
                         Leave A Review
-                    </Link>
+                    </Link> */}
+                    <p className="font-medium text-base md:text-lg">Sort By Price</p>
                 </div>
                 <div className="flex flex-col lg:flex-row items-center gap-1 md:gap-4">
-                    <p className="font-medium text-sm md:text-base">Sort By Price</p>
-
                     <input
                         className="border py-1 pl-3 w-[150px] focus:outline-none"
                         type="number"

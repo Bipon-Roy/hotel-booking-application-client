@@ -32,7 +32,7 @@ const Footer = () => {
                 <aside>
                     <img src={logo} className="w-20 h-20" alt="" />
                     <p className=" font-semibold">
-                        eShop Industries Ltd.
+                        Luxury Hotel Ltd.
                         <br />
                         Providing reliable tech since 1992
                     </p>
