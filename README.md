@@ -1,6 +1,6 @@
 # Hotel Booking
 
-The Hotel Booking project is featuring firebase & JWT authentication, it provides secure access for users to book their favourite rooms and accommodations effortlessly. The project built with React (including React Router) Tailwind, Node, Express and MongoDb.
+The Hotel Booking project is featuring firebase & JWT authentication, it provides secure access for users to book their favourite rooms and accommodations effortlessly.
 
 -   Live_Link: https://hotel-booking-60b59.web.app
 
