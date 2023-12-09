@@ -8,7 +8,7 @@ const BookingCard = ({ booking, handleDeleteBooking }) => {
     const { _id, checkIn, checkOut, room_description, price, room_thumbnail, roomTitle } = booking;
     return (
         <div className="card lg:card-side bg-white shadow-xl  lg:gap-5">
-            <figure className="lg:w-[350px] h-[280px]">
+            <figure className="lg:w-[360px] h-[220px] lg:h-full">
                 <img src={room_thumbnail} className="w-full h-full" alt={roomTitle} />
             </figure>
             <div className="flex flex-col lg:flex-row justify-between items-center w-full pr-4 mt-2 lg-mt-0 relative pb-6">
@@ -18,7 +18,7 @@ const BookingCard = ({ booking, handleDeleteBooking }) => {
                     <p className="font-bold text-primary">
                         <span className="text-textMain">Price:</span> {price}$
                     </p>
-                    <div className="flex flex-col gap-1 lg:flex-row justify-between">
+                    <div className="flex flex-col gap-1 lg:flex-row justify-between flex-grow">
                         <p className="font-bold">
                             <span className="text-textMain">Check In:</span> {checkIn}
                         </p>
@@ -48,7 +48,7 @@ const BookingCard = ({ booking, handleDeleteBooking }) => {
                             onClick={() => handleDeleteBooking(_id, checkIn)}
                             className="text-[#c1121f] font-semibold"
                         >
-                            <span className="flex items-center gap-1 text-white py-1 w-full bg-red-600 justify-center rounded">
+                            <span className="flex items-center gap-1 text-white py-1  bg-red-600 justify-center rounded">
                                 Cancel Booking <TiCancel className="text-xl" />
                             </span>
                         </button>
