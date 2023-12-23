@@ -41,12 +41,14 @@ const Rooms = () => {
                         className="border py-1 pl-3 w-[150px] focus:outline-none"
                         type="number"
                         placeholder="Min Price"
+                        min="0"
                         onChange={(e) => setMinPrice(e.target.value)}
                     />
                     <input
                         className="border py-1 pl-3 w-[150px] focus:outline-none"
                         type="number"
                         placeholder="Max Price"
+                        min="150"
                         onChange={(e) => setMaxPrice(e.target.value)}
                     />
                     <select
