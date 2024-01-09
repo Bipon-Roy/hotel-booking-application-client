@@ -30,7 +30,7 @@ const Testimonials = () => {
                     disableOnInteraction: false,
                 }}
                 modules={[Pagination, Autoplay]}
-                className="mySwiper bg-[#F8F9FA]"
+                className="mySwiper"
             >
                 <SwiperSlide>
                     <div className="rounded">
