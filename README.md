@@ -1,28 +1,45 @@
-# Hotel Booking
+# Hotel Booking Application
 
-The Hotel Booking project is featuring firebase & JWT authentication, it provides secure access for users to book their favourite rooms and accommodations effortlessly.
+The hotel booking project features Firebase and JWT authentication and provides secure access for users to book their favorite rooms and accommodations effortlessly.
 
--   Live_Link: https://hotel-booking-60b59.web.app
+-   [Live_Link](https://hotel-booking-60b59.web.app/)
 
-## Project Features
+-   [Server Side Repository](https://github.com/Bipon-Roy/hotel-booking-application-server)
 
--   Displayed a variety of Room with details and room image inside a card.
--   Users can see all the specific details of the rooms by simply clicking the room images.
+## Key Features
 
--   Users can book rooms and if needed they can update the booking information.
+-   CRUD operation with Authentication and Authorization
 
--   It provides secure access for users to book their favourite rooms and accommodations effortlessly.
+-   Generate access token on cookies at client side on login and remove it on logout.
 
--   Users can view all their booking information before confirming their booking.
-
--   Users can also sign in with social login methods like Google or Facebook.
-
--   After a successful login, users can see their name and profile picture in the header.
-
--   The project supports both login and logout functionality.
-
--   Users can navigate pages with a smooth UI experience.
+-   Private routes, data filtering, and social login methods.
 
 ### Used Technology
 
--   React, TailWind, DaisyUi, React Router, Axios, MongoDb,Express, Firebase, JWT.
+-   React, TailWind, DaisyUi, React Router, Axios, MongoDb, Express, Firebase, JWT.
+
+## Development Environment Setup Guide
+
+Download the [NodeJS](https://nodejs.org/en) and install it.
+
+# How to run code
+
+## Clone the repository
+
+```sh
+git clone https://github.com/Bipon-Roy/hotel-booking-application-client
+```
+
+Now, open the <b>hotel-booking-application-client</b> folder in your <b>IDE (VS Code recommended)</b> and run the following commands on <b>terminal (Git Bash)</b>
+
+<b>Using NPM</b>
+
+```bash
+  npm install
+```
+
+```bash
+  npm run dev
+```
+
+You can run the local server on port [5173](http://localhost:5173/). Now, you should have accessed the following URLs on your local server.
