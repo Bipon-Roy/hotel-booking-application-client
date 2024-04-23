@@ -9,13 +9,17 @@ const Main = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0); // Scroll to top on route change
+    }, [location.pathname]);
+
+    useEffect(() => {
         AOS.init({
             delay: 100,
             duration: 1000,
             anchorPlacement: "top-bottom",
             once: true,
         });
-    }, [location.pathname]);
+    }, []);
+
     return (
         <div className="flex flex-col min-h-screen overflow-hidden">
             <div className="flex-none">

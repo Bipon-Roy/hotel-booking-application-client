@@ -15,7 +15,7 @@ const Testimonials = () => {
                 <h1 className="text-center font-semibold text-2xl md:text-4xl ">
                     What Our <span className="text-primary">Clients Says</span>
                 </h1>
-                <p className="text-xs md:text-base w-[400px] md:w-[600px] text-center mx-auto">
+                <p className="text-xs md:text-base w-3/4 md:w-[400px] lg:w-[600px] text-center mx-auto">
                     Discover what our satisfied guests have to say about their experiences with our
                     hotel booking platform. Read their testimonials to get a glimpse of the
                     memorable journeys they&apos;ve had

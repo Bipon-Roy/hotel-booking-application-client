@@ -11,7 +11,7 @@ const NewsLetter = () => {
             }}
         >
             <div
-                className="text-center bg-white p-4 lg:p-8 rounded w-[400px] lg:w-[700px]"
+                className="text-center bg-white p-4 lg:p-8 rounded mx-3 md:mx-0 md:w-[400px] lg:w-[700px]"
                 data-aos="fade-up"
             >
                 <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3">
