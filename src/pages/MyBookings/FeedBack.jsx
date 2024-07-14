@@ -13,7 +13,6 @@ const FeedBack = () => {
     const [booking, setBooking] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate();
-    console.log(id);
     useEffect(() => {
         axiosURl.get(`bookings/${id}?email=${user?.email}`).then((res) => {
             setBooking(res.data);

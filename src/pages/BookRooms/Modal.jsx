@@ -3,9 +3,8 @@ import useAxiosUrl from "../../Hook/useAxiosUrl";
 import toast, { Toaster } from "react-hot-toast";
 
 const Modal = ({ bookingInfo, id, seats }) => {
-    console.log(typeof id);
     const axiosURl = useAxiosUrl();
-    console.log(id, seats);
+
     const handleBookService = () => {
         axiosURl.post("/bookings", bookingInfo).then((data) => {
             if (data.status === 200) {
@@ -16,7 +15,6 @@ const Modal = ({ bookingInfo, id, seats }) => {
                     if (res.status === 200) {
                         toast.success("Room Successfully Booked!!!");
                     }
-                    console.log(newSeats);
                 });
             }
         });

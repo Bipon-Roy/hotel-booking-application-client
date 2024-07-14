@@ -40,7 +40,7 @@ const RoomDetails = () => {
             .catch((e) => console.log(e));
     }, [axiosURl, _id]);
     return (
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto lg:mt-5">
             <Helmet>
                 <title>Luxury Hotel | Room Details</title>
             </Helmet>
@@ -48,10 +48,10 @@ const RoomDetails = () => {
                 <div>
                     <ImageSlider room_images={room_images} />
                 </div>
-                <div className="absolute top-[490px]  md:top-0 right-0 z-10">
+                <div className="absolute top-[490px]  md:top-5 right-0 z-10 lg:hidden">
                     <button
                         onClick={() => navigate(-1)}
-                        className="text-base bg-secondary  text-white rounded-full p-2"
+                        className="text-base bg-secondary text-white rounded-full p-1.5"
                     >
                         <BiArrowBack />
                     </button>

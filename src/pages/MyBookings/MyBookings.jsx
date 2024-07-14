@@ -19,11 +19,10 @@ const MyBookings = () => {
 
     const handleDeleteBooking = (id, checkInDate) => {
         const currentDate = moment().format("YYYY-MM-DD");
-        console.log("Current Date", currentDate);
+
         const checkIn = moment(checkInDate);
-        console.log("CheckIn Date", checkIn);
+
         const daysUntilCheckIn = checkIn.diff(currentDate, "days");
-        console.log(daysUntilCheckIn);
 
         if (daysUntilCheckIn < 2) {
             Swal.fire({
@@ -43,13 +42,9 @@ const MyBookings = () => {
             }).then((result) => {
                 if (result.isConfirmed) {
                     axiosURl.delete(`/bookings/${id}`).then((data) => {
-                        console.log(data);
                         if (data.status === 200) {
-                            console.log("deleted successfully");
                             Swal.fire("Cancelled!", "Booking Cancelled Successfully", "success");
-
                             const remainingCards = bookings.filter((card) => card._id !== id);
-                            console.log(remainingCards);
                             setBookings(remainingCards);
                         }
                     });

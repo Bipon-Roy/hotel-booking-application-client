@@ -10,7 +10,6 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 const ImageSlider = ({ room_images }) => {
-    console.log(typeof room_images);
     return (
         <div>
             <Swiper

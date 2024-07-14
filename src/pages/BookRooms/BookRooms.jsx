@@ -12,7 +12,7 @@ const BookRooms = () => {
     const navigate = useNavigate();
     const [bookingInfo, setBookingInfo] = useState({});
     const { title, _id, price_per_night, room_thumbnail, room_description, seats } = room;
-    console.log(seats);
+
     const handleBookService = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -37,7 +37,7 @@ const BookRooms = () => {
         };
         openModal();
     };
-    console.log(bookingInfo);
+
     // if (seats === 0) {
     //     Swal.fire({
     //         icon: "error",

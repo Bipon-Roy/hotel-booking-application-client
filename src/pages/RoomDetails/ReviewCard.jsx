@@ -16,7 +16,7 @@ const ReviewCard = ({ reviews }) => {
                 <p className="font-medium">{timestamp}</p>
             </div>
             <div className="px-5 pb-6 flex justify-center">
-                <Ratings ratings={rating}></Ratings>
+                <Ratings ratings={parseInt(rating)}></Ratings>
             </div>
         </div>
     );

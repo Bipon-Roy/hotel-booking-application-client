@@ -19,8 +19,6 @@ const Register = () => {
         const email = formData.get("email");
         const password = formData.get("password");
 
-        console.log(name, photoURL, email, password);
-
         if (password.length < 6) {
             Swal.fire({
                 icon: "error",

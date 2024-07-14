@@ -20,8 +20,7 @@ const Login = () => {
         const password = formData.get("password");
 
         logIn(email, password)
-            .then((result) => {
-                console.log(result.user);
+            .then(() => {
                 route(location?.state ? location.state : "/");
                 Swal.fire({
                     icon: "success",
@@ -30,7 +29,6 @@ const Login = () => {
                 });
             })
             .catch((error) => {
-                console.log(error);
                 Swal.fire({
                     icon: "error",
                     title: "Error!",
