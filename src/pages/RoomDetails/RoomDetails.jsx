@@ -57,8 +57,8 @@ const RoomDetails = () => {
                     </button>
                 </div>
                 <div className="space-y-2 flex flex-col">
-                    <h1 className="text-2xl lg:text-3xl font-bold">{title}</h1>
-                    <p className="font-medium lg:text-xl">{room_description}</p>
+                    <h1 className="text-xl lg:text-2xl font-bold">{title}</h1>
+                    <p className="font-medium lg:text-lg">{room_description}</p>
                     <div className="flex gap-5 text-sm lg:text-lg pt-2">
                         <p>
                             <span className="font-semibold mr-1">Room Size:</span>
