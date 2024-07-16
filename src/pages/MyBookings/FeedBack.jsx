@@ -6,13 +6,16 @@ import moment from "moment-timezone";
 import toast, { Toaster } from "react-hot-toast";
 import { BiArrowBack } from "react-icons/bi";
 import { Helmet } from "react-helmet-async";
-
+import { FaStar } from "react-icons/fa";
 const FeedBack = () => {
     const { user } = useContext(AuthContext);
     const axiosURl = useAxiosUrl();
     const [booking, setBooking] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate();
+    const [hover, setHover] = useState(null);
+    const [rating, setRating] = useState(0);
+
     useEffect(() => {
         axiosURl.get(`bookings/${id}?email=${user?.email}`).then((res) => {
             setBooking(res.data);
@@ -26,23 +29,18 @@ const FeedBack = () => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const rating = form.rating.value;
-        const comment = form.comment.value;
+        const review = form.review.value;
         const userPhoto = user?.photoURL;
-        const parseRating = parseInt(rating);
-        if (parseRating > 5 || parseRating === 0) {
-            toast.error("Please give rating value between 1 to 5!!");
-            return;
-        }
-        const review = {
+
+        const feedback = {
             customerName: name,
             rating,
-            comment,
+            review,
             timestamp,
             userPhoto,
             room_id,
         };
-        axiosURl.post("/reviews", review).then((res) => {
+        axiosURl.post("/reviews", feedback).then((res) => {
             if (res.status === 200) {
                 toast.success("Thanks for your feedback!!!");
             }
@@ -70,6 +68,29 @@ const FeedBack = () => {
                             Your experience
                         </h1>
                         <div className="space-y-4 m-6">
+                            <div className="flex justify-center">
+                                {[...Array(5)].map((_, index) => {
+                                    const currentRating = index + 1;
+
+                                    return (
+                                        <label key={index}>
+                                            <FaStar
+                                                value={currentRating}
+                                                onClick={() => setRating(currentRating)}
+                                                className="cursor-pointer"
+                                                size={30}
+                                                color={
+                                                    currentRating <= (hover || rating)
+                                                        ? "#e63946"
+                                                        : "#ff868e"
+                                                }
+                                                onMouseEnter={() => setHover(currentRating)}
+                                                onMouseLeave={() => setHover(null)}
+                                            />
+                                        </label>
+                                    );
+                                })}
+                            </div>
                             <div className="form-control">
                                 <input
                                     name="name"
@@ -79,18 +100,10 @@ const FeedBack = () => {
                                     required
                                 />
                             </div>
-                            <div className="form-control">
-                                <input
-                                    name="rating"
-                                    type="text"
-                                    placeholder="Ratings"
-                                    className="input input-bordered focus:outline-none"
-                                    required
-                                />
-                            </div>
+
                             <div className="form-control">
                                 <textarea
-                                    name="comment"
+                                    name="review"
                                     rows="4"
                                     type="text"
                                     placeholder="Comment"

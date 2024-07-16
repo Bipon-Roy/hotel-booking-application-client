@@ -19,7 +19,7 @@ const Cards = ({ card }) => {
 
     return (
         <div className="flex flex-col bg-base-100 shadow-xl transition-all hover:scale-105">
-            <Link to={`/roomDetails/${_id}`}>
+            <Link to={`/rooms/details/${_id}`}>
                 <figure>
                     <img className="h-[200px] w-full" src={room_thumbnail} alt={title} />
                 </figure>
