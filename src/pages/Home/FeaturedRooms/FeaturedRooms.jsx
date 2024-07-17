@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import RoomCards from "./RoomCards";
 import { Link } from "react-router-dom";
 import { AiOutlineArrowRight } from "react-icons/ai";
-import useAxiosUrl from "../../../Hook/useAxiosUrl";
+import useAxiosUrl from "../../../Hook/useAxiosURL";
+
 const FeaturedRooms = () => {
     const [rooms, setRooms] = useState([]);
     const axiosURl = useAxiosUrl();

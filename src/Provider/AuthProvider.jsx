@@ -63,17 +63,25 @@ const AuthProvider = ({ children }) => {
 
             if (currentUser) {
                 axios
-                    .post("http://localhost:5000/auth/jwt", loggedUser, {
-                        withCredentials: true,
-                    })
+                    .post(
+                        "https://hotel-booking-application-server.vercel.app/auth/jwt",
+                        loggedUser,
+                        {
+                            withCredentials: true,
+                        }
+                    )
                     .then((res) => {
                         console.log("token response", res.data);
                     });
             } else {
                 axios
-                    .post("http://localhost:5000/auth/logout", loggedUser, {
-                        withCredentials: true,
-                    })
+                    .post(
+                        "https://hotel-booking-application-server.vercel.app/auth/logout",
+                        loggedUser,
+                        {
+                            withCredentials: true,
+                        }
+                    )
                     .then((res) => {
                         console.log(res.data);
                     });

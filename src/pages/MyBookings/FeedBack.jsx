@@ -1,12 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import useAxiosUrl from "../../Hook/useAxiosUrl";
+import useAxiosUrl from "../../Hook/useAxiosURL";
 import { useNavigate, useParams } from "react-router-dom";
 import moment from "moment-timezone";
 import toast, { Toaster } from "react-hot-toast";
 import { BiArrowBack } from "react-icons/bi";
 import { Helmet } from "react-helmet-async";
 import { FaStar } from "react-icons/fa";
+
 const FeedBack = () => {
     const { user } = useContext(AuthContext);
     const axiosURl = useAxiosUrl();
@@ -29,13 +30,13 @@ const FeedBack = () => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const review = form.review.value;
+        const comment = form.comment.value;
         const userPhoto = user?.photoURL;
 
         const feedback = {
             customerName: name,
             rating,
-            review,
+            comment,
             timestamp,
             userPhoto,
             room_id,
@@ -103,7 +104,7 @@ const FeedBack = () => {
 
                             <div className="form-control">
                                 <textarea
-                                    name="review"
+                                    name="comment"
                                     rows="4"
                                     type="text"
                                     placeholder="Comment"
