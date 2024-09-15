@@ -43,10 +43,7 @@ const routes = createBrowserRouter([
             {
                 path: "/rooms/details/:id",
                 element: <RoomDetails />,
-                loader: ({ params }) =>
-                    fetch(
-                        `https://hotel-booking-application-server.vercel.app/rooms/details/${params.id}`
-                    ),
+                loader: ({ params }) => fetch(`http://localhost:5000/rooms/details/${params.id}`),
             },
             {
                 path: "/rooms/:id",
@@ -55,8 +52,7 @@ const routes = createBrowserRouter([
                         <BookRooms />
                     </PrivateRoute>
                 ),
-                loader: ({ params }) =>
-                    fetch(`https://hotel-booking-application-server.vercel.app/rooms/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/rooms/${params.id}`),
             },
             {
                 path: "/myBookings",

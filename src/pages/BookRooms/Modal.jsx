@@ -1,15 +1,23 @@
 import PropTypes from "prop-types";
-import useAxiosUrl from "../../Hook/useAxiosUrl";
+
 import toast, { Toaster } from "react-hot-toast";
+import useAxiosUrl from "../../Hook/useAxiosURL";
 
 const Modal = ({ bookingInfo }) => {
     const axiosURl = useAxiosUrl();
-    const handleBookService = () => {
-        axiosURl.post("/bookings", bookingInfo).then((data) => {
-            if (data.status === 200) {
+
+    const handleBookService = async () => {
+        try {
+            const response = await axiosURl.post("/bookings", bookingInfo);
+            if (response.status === 200) {
                 toast.success("Room Successfully Booked!!!");
+            } else {
+                throw new Error("Failed to book the room");
             }
-        });
+        } catch (error) {
+            toast.error("An error occurred while booking. Please try again.");
+            console.error("Booking error:", error);
+        }
     };
     return (
         <div className="card">
@@ -23,11 +31,12 @@ const Modal = ({ bookingInfo }) => {
                     </p>
                     <div className="flex flex-col gap-1 lg:flex-row justify-between">
                         <p className="font-bold">
-                            <span className="text-textMain">Check In:</span> {bookingInfo?.checkIn}
+                            <span className="text-textMain">Check In:</span>{" "}
+                            {new Date(bookingInfo?.checkIn).toLocaleDateString()}
                         </p>
                         <p className="font-bold text-primary">
                             <span className="text-textMain">Check Out:</span>{" "}
-                            {bookingInfo?.checkOut}
+                            {new Date(bookingInfo?.checkOut).toLocaleDateString()}
                         </p>
                     </div>
                     <div className="flex flex-col lg:flex-row justify-between pt-3">
@@ -45,7 +54,5 @@ const Modal = ({ bookingInfo }) => {
 };
 Modal.propTypes = {
     bookingInfo: PropTypes.object.isRequired,
-    id: PropTypes.string.isRequired,
-    seats: PropTypes.number.isRequired,
 };
 export default Modal;
