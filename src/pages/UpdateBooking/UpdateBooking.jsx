@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useNavigate, useParams } from "react-router-dom";
-import useAxiosUrl from "../../Hook/useAxiosUrl";
+import useAxiosUrl from "../../Hook/useAxiosURL";
 import { BiArrowBack } from "react-icons/bi";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import DatePicker from "react-datepicker";
 
 const UpdateBooking = () => {
     const axiosURl = useAxiosUrl();
@@ -12,6 +13,10 @@ const UpdateBooking = () => {
     const [booking, setBooking] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate();
+
+    const [checkInDate, setCheckInDate] = useState(null);
+    const [checkOutDate, setCheckOutDate] = useState(null);
+    const [bookedDateRanges, setBookedDateRanges] = useState([]); // Store booked ranges
 
     useEffect(() => {
         axiosURl
@@ -22,16 +27,56 @@ const UpdateBooking = () => {
             .catch((e) => {
                 console.log(e);
             });
+
+        const fetchBookedDates = async () => {
+            try {
+                const response = await axiosURl.get(`/bookings/${id}/booked-dates`);
+                const data = await response.data;
+
+                // Ensure we receive ranges of booked dates [{ start: '2024-09-18', end: '2024-09-21' }]
+                if (Array.isArray(data)) {
+                    setBookedDateRanges(data);
+                } else {
+                    setBookedDateRanges([]);
+                }
+            } catch (error) {
+                console.error("Error fetching booked dates:", error);
+            }
+        };
+        fetchBookedDates();
     }, [axiosURl, id]);
 
     const { _id, title, room_thumbnail, checkOut, checkIn } = booking;
+
+    useEffect(() => {
+        if (checkIn && checkOut) {
+            setCheckInDate(checkIn);
+            setCheckOutDate(checkOut);
+        }
+    }, [checkOut, checkIn]);
+
+    // Helper to check if a date falls within a booked range
+    const isDateBooked = (date) => {
+        return bookedDateRanges.some((range) => {
+            const start = new Date(range.start);
+            const end = new Date(range.end);
+            return date >= start && date <= end;
+        });
+    };
+
+    // Ensure check-out is after check-in
+    const handleCheckOutChange = (date) => {
+        if (date > checkInDate) {
+            setCheckOutDate(date);
+        }
+    };
 
     const handleUpdateBookings = (event) => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const checkIn = form.checkIn.value;
-        const checkOut = form.checkOut.value;
+        const checkIn = checkInDate;
+        const checkOut = checkOutDate;
         const email = user.email;
         const booking = {
             email: email,
@@ -66,11 +111,7 @@ const UpdateBooking = () => {
                     </button>
                 </div>
                 <div className="lg:p-5 md:col-span-2 lg:col-auto">
-                    <img
-                        className="rounded h-[250px] md:h-full w-full"
-                        src={room_thumbnail}
-                        alt={title}
-                    />
+                    <img className="rounded h-[250px] md:h-full w-full" src={room_thumbnail} alt={title} />
                 </div>
 
                 <div className="mt-4 md:mt-0">
@@ -106,40 +147,28 @@ const UpdateBooking = () => {
                                 <label className="label">
                                     <span className="label-text">Check In Date</span>
                                 </label>
-                                <input
+                                <DatePicker
+                                    selected={checkInDate}
+                                    onChange={(date) => setCheckInDate(date)}
+                                    filterDate={(date) => !isDateBooked(date)} // Disable booked dates
+                                    className="input input-bordered focus:outline-none w-full"
+                                    placeholderText="Select a check-in date"
                                     required
-                                    type="date"
-                                    name="checkIn"
-                                    defaultValue={checkIn}
-                                    className="input input-bordered focus:outline-none"
                                 />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Check Out Date</span>
                                 </label>
-                                <input
+                                <DatePicker
+                                    selected={checkOutDate}
+                                    onChange={handleCheckOutChange}
+                                    filterDate={(date) => !isDateBooked(date) && date > checkInDate}
+                                    className="input input-bordered focus:outline-none w-full"
+                                    placeholderText="Select a check-out date"
                                     required
-                                    type="date"
-                                    name="checkOut"
-                                    defaultValue={checkOut}
-                                    className="input input-bordered focus:outline-none"
                                 />
                             </div>
-                            {/*                         
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Price Per Night</span>
-                                </label>
-                                <input
-                                    disabled
-                                    name="price"
-                                    required
-                                    type="text"
-                                    defaultValue={price}
-                                    className="input input-bordered focus:outline-none"
-                                />
-                            </div> */}
                         </div>
                         <div className="form-control mt-6">
                             <input

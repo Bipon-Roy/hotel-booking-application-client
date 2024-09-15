@@ -20,17 +20,14 @@ const BookingCard = ({ booking, handleDeleteBooking }) => {
                     </p>
                     <div className="flex flex-col gap-1 lg:flex-row justify-between flex-grow">
                         <p className="font-bold">
-                            <span className="text-textMain">Check In:</span> {checkIn}
+                            <span className="text-textMain">Check In:</span> {checkIn.split("T")[0]}
                         </p>
                         <p className="font-bold text-primary">
-                            <span className="text-textMain">Check Out:</span> {checkOut}
+                            <span className="text-textMain">Check Out:</span> {checkOut.split("T")[0]}
                         </p>
                     </div>
                     <div className="flex items-center justify-between">
-                        <Link
-                            to={`/feedback/${_id}`}
-                            className="text-[#2667ff] font-semibold  flex items-center gap-1"
-                        >
+                        <Link to={`/feedback/${_id}`} className="text-[#2667ff] font-semibold  flex items-center gap-1">
                             Your Review
                             <FaArrowAltCircleRight />
                         </Link>
